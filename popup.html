@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Shopping List</h1>
+    <nav class="tabs">
+      <button class="tab active" data-tab="list">Shopping List</button>
+      <button class="tab" data-tab="recipes">Recipes</button>
+    </nav>
+  </header>
+
+  <!-- Shopping List Tab -->
+  <section id="tab-list" class="tab-content active">
+    <div id="list-items"></div>
+    <div id="list-empty" class="empty-state">
+      <p>Your shopping list is empty.</p>
+      <p class="hint">Browse Amazon and click "Add to Shopping List" on any product.</p>
+    </div>
+    <div id="list-footer" class="footer" style="display:none;">
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="list-total">$0.00</span>
+      </div>
+      <button id="btn-add-to-cart" class="btn primary">Add All to Amazon Cart</button>
+      <button id="btn-clear-list" class="btn danger">Clear List</button>
+    </div>
+  </section>
+
+  <!-- Recipes Tab -->
+  <section id="tab-recipes" class="tab-content">
+    <!-- Recipe List View -->
+    <div id="recipe-list-view">
+      <div id="recipe-list"></div>
+      <div id="recipe-empty" class="empty-state">
+        <p>No recipes yet.</p>
+        <p class="hint">Create a recipe to group items with a quantity multiplier.</p>
+      </div>
+      <button id="btn-new-recipe" class="btn primary full-width">+ New Recipe</button>
+    </div>
+
+    <!-- Recipe Edit View (hidden by default) -->
+    <div id="recipe-edit-view" style="display:none;">
+      <input id="recipe-name" type="text" placeholder="Recipe name" class="input">
+      <div class="multiplier-row">
+        <label>Multiplier:</label>
+        <div class="qty-controls">
+          <button class="qty-btn" id="mult-decrease">-</button>
+          <span id="recipe-multiplier">1</span><span>x</span>
+          <button class="qty-btn" id="mult-increase">+</button>
+        </div>
+      </div>
+      <h3>Items</h3>
+      <div id="recipe-items"></div>
+      <div id="recipe-items-empty" class="empty-state small">
+        <p>No items yet. Add from your shopping list or the current Amazon page.</p>
+      </div>
+      <div class="recipe-add-actions">
+        <button id="btn-add-from-list" class="btn secondary">+ From Shopping List</button>
+        <button id="btn-add-current-product" class="btn secondary">+ Current Page</button>
+      </div>
+      <div class="form-actions">
+        <button id="btn-save-recipe" class="btn primary">Save Recipe</button>
+        <button id="btn-cancel-recipe" class="btn secondary">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Item Picker Modal (for adding from shopping list) -->
+    <div id="item-picker" class="modal" style="display:none;">
+      <div class="modal-content">
+        <h3>Select Items</h3>
+        <div id="picker-items"></div>
+        <div class="form-actions">
+          <button id="btn-picker-confirm" class="btn primary">Add Selected</button>
+          <button id="btn-picker-cancel" class="btn secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

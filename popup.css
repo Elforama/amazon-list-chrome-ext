@@ -1,0 +1,451 @@
+/* Amazon Shopping List - Popup Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 400px;
+  min-height: 300px;
+  max-height: 500px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #0f1111;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+header {
+  padding: 12px 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 0;
+}
+
+.tab {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #565959;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #0f1111;
+}
+
+.tab.active {
+  color: #c45500;
+  border-bottom-color: #c45500;
+}
+
+/* Tab Content */
+
+.tab-content {
+  display: none;
+  flex: 1;
+  overflow-y: auto;
+  flex-direction: column;
+}
+
+.tab-content.active {
+  display: flex;
+}
+
+/* Item Cards */
+
+#list-items,
+#recipe-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.item-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.item-card:hover {
+  background: #fafafa;
+}
+
+.item-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: #f5f5f5;
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item-title {
+  font-size: 12px;
+  color: #0f1111;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.item-title:hover {
+  color: #c45500;
+}
+
+.item-price {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+.item-price.na {
+  color: #999;
+  font-weight: normal;
+}
+
+/* Quantity Controls */
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.qty-btn {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d5d9d9;
+  border-radius: 4px;
+  background: #f0f2f2;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f1111;
+}
+
+.qty-btn:hover {
+  background: #e3e6e6;
+}
+
+.qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Remove Button */
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  color: #c40000;
+}
+
+/* Empty State */
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #565959;
+}
+
+.empty-state.small {
+  padding: 16px 12px;
+  font-size: 12px;
+}
+
+.empty-state .hint {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* Footer */
+
+.footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  flex-shrink: 0;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn.primary {
+  background: #ffa41c;
+  color: #0f1111;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.btn.primary:hover {
+  background: #fa8900;
+}
+
+.btn.secondary {
+  background: #f0f2f2;
+  color: #0f1111;
+  border: 1px solid #d5d9d9;
+}
+
+.btn.secondary:hover {
+  background: #e3e6e6;
+}
+
+.btn.danger {
+  background: none;
+  color: #c40000;
+  width: 100%;
+  font-size: 12px;
+}
+
+.btn.danger:hover {
+  background: #fff0f0;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+.btn.small {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* Recipe Cards */
+
+.recipe-card {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recipe-card:hover {
+  background: #fafafa;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.recipe-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.recipe-meta {
+  font-size: 12px;
+  color: #565959;
+}
+
+.recipe-multiplier {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.recipe-total {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Recipe Edit View */
+
+#recipe-edit-view {
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d5d9d9;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 0 2px rgba(228, 121, 17, 0.15);
+}
+
+.multiplier-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.multiplier-row label {
+  font-weight: 600;
+}
+
+#recipe-edit-view h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #565959;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 4px;
+}
+
+.recipe-add-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.recipe-add-actions .btn {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.form-actions .btn {
+  flex: 1;
+}
+
+/* Item Picker Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 360px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-content h3 {
+  font-size: 14px;
+}
+
+#picker-items {
+  overflow-y: auto;
+  max-height: 280px;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.picker-item:hover {
+  background: #fafafa;
+}
+
+.picker-item input[type="checkbox"] {
+  flex-shrink: 0;
+}
+
+.picker-item-title {
+  font-size: 12px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.picker-item-price {
+  font-size: 12px;
+  color: #565959;
+  flex-shrink: 0;
+}

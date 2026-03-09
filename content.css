@@ -1,0 +1,195 @@
+/* Amazon Shopping List - Content Script Styles */
+/* All classes prefixed with asl- to avoid Amazon CSS collisions */
+
+#asl-add-to-list-btn {
+  background-color: #ffa41c;
+  border: 1px solid #ff8f00;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  color: #0f1111;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.15s;
+}
+
+#asl-add-to-list-btn:hover {
+  background-color: #fa8900;
+}
+
+#asl-add-to-list-btn:active {
+  background-color: #e47911;
+}
+
+#asl-add-to-list-btn.asl-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  width: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.asl-toast {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background: #0f1111;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 10001;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.asl-toast.asl-show {
+  opacity: 1;
+}
+
+.asl-toast.asl-error {
+  background: #c40000;
+}
+
+/* Add to Recipe Button */
+#asl-add-to-recipe-btn {
+  background-color: #ffa41c;
+  border: 1px solid #ff8f00;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  color: #0f1111;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.15s;
+}
+
+#asl-add-to-recipe-btn:hover {
+  background-color: #fa8900;
+}
+
+#asl-add-to-recipe-btn:active {
+  background-color: #e47911;
+}
+
+#asl-add-to-recipe-btn.asl-floating {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  z-index: 10000;
+  width: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Recipe Picker Modal */
+#asl-recipe-picker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+.asl-recipe-picker-modal {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  width: 320px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.asl-recipe-picker-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1111;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.asl-recipe-picker-list {
+  overflow-y: auto;
+  max-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.asl-recipe-picker-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 8px;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.1s;
+}
+
+.asl-recipe-picker-item:hover {
+  background: #fafafa;
+}
+
+.asl-recipe-picker-item:last-child {
+  border-bottom: none;
+}
+
+.asl-recipe-picker-item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+.asl-recipe-picker-item-meta {
+  font-size: 12px;
+  color: #565959;
+  flex-shrink: 0;
+}
+
+.asl-recipe-picker-empty {
+  text-align: center;
+  padding: 20px 12px;
+  color: #565959;
+  font-size: 13px;
+}
+
+.asl-recipe-picker-cancel {
+  background: #f0f2f2;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0f1111;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.15s;
+  width: 100%;
+}
+
+.asl-recipe-picker-cancel:hover {
+  background: #e3e6e6;
+}
