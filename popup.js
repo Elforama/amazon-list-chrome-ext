@@ -80,13 +80,13 @@
       .map(
         (item, i) => `
       <div class="item-card" data-index="${i}">
-        <img src="${escapeHtml(item.image || '')}" alt="" class="item-thumb" onerror="this.style.display='none'">
+        <img src="${escapeHtml(item.image || '')}" alt="" class="item-thumb" onerror="this.style.visibility='hidden'">
         <div class="item-info">
           <a href="${escapeHtml(item.url)}" class="item-title" target="_blank" title="${escapeHtml(item.title)}">${escapeHtml(item.title || 'Unknown Product')}</a>
           <span class="item-price ${item.price == null ? 'na' : ''}">${formatPrice(item.price) || 'Price N/A'}</span>
         </div>
         <div class="qty-controls">
-          <button class="qty-btn" data-action="decrease" data-index="${i}">-</button>
+          <button class="qty-btn" data-action="decrease" data-index="${i}">&#8722;</button>
           <span class="qty-value">${item.quantity}</span>
           <button class="qty-btn" data-action="increase" data-index="${i}">+</button>
         </div>
@@ -193,14 +193,16 @@
             <h3>${escapeHtml(recipe.name)}</h3>
             <span class="recipe-meta">${recipe.items.length} item${recipe.items.length !== 1 ? 's' : ''}</span>
           </div>
-          <div class="recipe-multiplier">
-            <div class="qty-controls">
-              <button class="qty-btn" data-recipe-mult="${i}" data-delta="-1">-</button>
-              <span class="qty-value">${recipe.multiplier}x</span>
-              <button class="qty-btn" data-recipe-mult="${i}" data-delta="1">+</button>
+          <div class="recipe-details">
+            <div class="recipe-multiplier">
+              <div class="qty-controls">
+                <button class="qty-btn" data-recipe-mult="${i}" data-delta="-1">&#8722;</button>
+                <span class="qty-value">${recipe.multiplier}x</span>
+                <button class="qty-btn" data-recipe-mult="${i}" data-delta="1">+</button>
+              </div>
             </div>
+            <div class="recipe-total">$${total.toFixed(2)}</div>
           </div>
-          <div class="recipe-total">Total: $${total.toFixed(2)}</div>
           <div class="recipe-actions">
             <button class="btn primary small" data-cart-recipe="${i}">Add to Cart</button>
             <button class="btn secondary small" data-edit-recipe="${i}">Edit</button>
@@ -228,13 +230,13 @@
       .map(
         (item, i) => `
       <div class="item-card" data-ri="${i}">
-        <img src="${escapeHtml(item.image || '')}" alt="" class="item-thumb" onerror="this.style.display='none'">
+        <img src="${escapeHtml(item.image || '')}" alt="" class="item-thumb" onerror="this.style.visibility='hidden'">
         <div class="item-info">
           <span class="item-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title || 'Unknown Product')}</span>
           <span class="item-price ${item.price == null ? 'na' : ''}">${formatPrice(item.price) || 'Price N/A'}</span>
         </div>
         <div class="qty-controls">
-          <button class="qty-btn" data-ri-action="decrease" data-ri="${i}">-</button>
+          <button class="qty-btn" data-ri-action="decrease" data-ri="${i}">&#8722;</button>
           <span class="qty-value">${item.baseQuantity}</span>
           <button class="qty-btn" data-ri-action="increase" data-ri="${i}">+</button>
         </div>

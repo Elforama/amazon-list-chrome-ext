@@ -1,4 +1,6 @@
-/* Amazon Shopping List - Popup Styles */
+/* Amazon Shopping List - Modern Popup Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -6,59 +8,118 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 400px;
-  min-height: 300px;
-  max-height: 500px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #0f1111;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --surface-hover: #f4f5f7;
+  --border: #e8eaed;
+  --border-light: #f1f3f5;
+  --text: #1a1d21;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --accent-light: #fef3c7;
+  --accent-text: #92400e;
+  --danger: #ef4444;
+  --danger-light: #fef2f2;
+  --danger-hover: #dc2626;
+  --success: #10b981;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --transition: 150ms ease;
 }
 
-/* Header */
+body {
+  width: 420px;
+  min-height: 320px;
+  max-height: 600px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== Header ==================== */
 
 header {
-  padding: 12px 16px 0;
-  border-bottom: 1px solid #e0e0e0;
+  background: var(--surface);
+  padding: 16px 20px 0;
+  border-bottom: 1px solid var(--border);
   flex-shrink: 0;
 }
 
-header h1 {
-  font-size: 16px;
-  margin-bottom: 8px;
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
 }
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+header h1 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+/* Tabs */
 
 .tabs {
   display: flex;
-  gap: 0;
+  gap: 2px;
 }
 
 .tab {
   flex: 1;
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: none;
   background: none;
+  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  color: #565959;
+  color: var(--text-secondary);
   border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color var(--transition), border-color var(--transition);
+  position: relative;
 }
 
 .tab:hover {
-  color: #0f1111;
+  color: var(--text);
 }
 
 .tab.active {
-  color: #c45500;
-  border-bottom-color: #c45500;
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent);
 }
 
-/* Tab Content */
+/* ==================== Tab Content ==================== */
 
 .tab-content {
   display: none;
@@ -71,34 +132,40 @@ header h1 {
   display: flex;
 }
 
-/* Item Cards */
+/* ==================== Item Cards ==================== */
 
 #list-items,
 #recipe-items {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 0;
+  padding: 6px 10px;
 }
 
 .item-card {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 16px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 7px 10px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  margin-bottom: 4px;
+  border: 1px solid var(--border-light);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .item-card:hover {
-  background: #fafafa;
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .item-thumb {
-  width: 48px;
-  height: 48px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   flex-shrink: 0;
-  background: #f5f5f5;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
 }
 
 .item-info {
@@ -106,163 +173,247 @@ header h1 {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .item-title {
-  font-size: 12px;
-  color: #0f1111;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text);
   text-decoration: none;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.3;
+  line-height: 1.4;
+  transition: color var(--transition);
 }
 
-.item-title:hover {
-  color: #c45500;
+a.item-title:hover {
+  color: var(--accent-hover);
 }
 
 .item-price {
-  font-size: 12px;
-  font-weight: 600;
-  color: #0f1111;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .item-price.na {
-  color: #999;
-  font-weight: normal;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 12px;
 }
 
-/* Quantity Controls */
+/* ==================== Quantity Controls ==================== */
 
 .qty-controls {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   flex-shrink: 0;
+  background: var(--bg);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  border: 1px solid var(--border);
 }
 
 .qty-btn {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #d5d9d9;
-  border-radius: 4px;
-  background: #f0f2f2;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0f1111;
+  color: var(--text-secondary);
+  transition: background var(--transition), color var(--transition);
+  font-family: inherit;
 }
 
 .qty-btn:hover {
-  background: #e3e6e6;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.qty-btn:active {
+  background: var(--border);
 }
 
 .qty-value {
-  min-width: 20px;
+  min-width: 22px;
   text-align: center;
   font-size: 13px;
   font-weight: 600;
+  color: var(--text);
 }
 
-/* Remove Button */
+/* ==================== Remove Button ==================== */
 
 .remove-btn {
   background: none;
   border: none;
-  font-size: 18px;
-  color: #999;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--text-muted);
   cursor: pointer;
-  padding: 0 4px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
 }
 
 .remove-btn:hover {
-  color: #c40000;
+  color: var(--danger);
+  background: var(--danger-light);
 }
 
-/* Empty State */
+/* ==================== Empty State ==================== */
 
 .empty-state {
   text-align: center;
-  padding: 40px 20px;
-  color: #565959;
+  padding: 48px 24px;
+  color: var(--text-secondary);
 }
 
-.empty-state.small {
-  padding: 16px 12px;
-  font-size: 12px;
+.empty-state-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  background: var(--accent-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent-hover);
+}
+
+.empty-state p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
 }
 
 .empty-state .hint {
   font-size: 12px;
-  color: #999;
-  margin-top: 4px;
+  color: var(--text-muted);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-/* Footer */
+.empty-state.small {
+  padding: 20px 16px;
+}
+
+.empty-state.small p {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ==================== Footer ==================== */
 
 .footer {
-  border-top: 1px solid #e0e0e0;
-  padding: 12px 16px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 10px 16px 12px;
   flex-shrink: 0;
 }
 
 .total-row {
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
-  font-weight: 700;
+  align-items: baseline;
   margin-bottom: 10px;
 }
 
-/* Buttons */
+.total-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.total-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* ==================== Buttons ==================== */
 
 .btn {
-  padding: 8px 16px;
+  padding: 7px 14px;
   border: none;
-  border-radius: 8px;
-  font-size: 13px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .btn.primary {
-  background: #ffa41c;
-  color: #0f1111;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-hover));
+  color: white;
   width: 100%;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .btn.primary:hover {
-  background: #fa8900;
+  background: linear-gradient(to bottom, var(--accent-hover), #b45309);
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+  transform: translateY(-0.5px);
+}
+
+.btn.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(245, 158, 11, 0.3);
 }
 
 .btn.secondary {
-  background: #f0f2f2;
-  color: #0f1111;
-  border: 1px solid #d5d9d9;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .btn.secondary:hover {
-  background: #e3e6e6;
+  background: var(--surface-hover);
+  border-color: #d1d5db;
 }
 
 .btn.danger {
   background: none;
-  color: #c40000;
+  color: var(--text-muted);
   width: 100%;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 0;
+  padding: 4px 10px;
 }
 
 .btn.danger:hover {
-  background: #fff0f0;
+  color: var(--danger);
+  background: var(--danger-light);
 }
 
 .btn.full-width {
@@ -271,49 +422,69 @@ header h1 {
 
 .btn.small {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 11.5px;
+  border-radius: var(--radius-sm);
 }
 
-/* Recipe Cards */
+/* ==================== Recipe Cards ==================== */
+
+#recipe-list {
+  padding: 6px 10px;
+}
 
 .recipe-card {
-  padding: 12px 16px;
-  border-bottom: 1px solid #f0f0f0;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border-light);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .recipe-card:hover {
-  background: #fafafa;
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .recipe-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .recipe-header h3 {
   font-size: 14px;
   font-weight: 600;
+  color: var(--text);
 }
 
 .recipe-meta {
-  font-size: 12px;
-  color: #565959;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.recipe-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
 
 .recipe-multiplier {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 6px;
-  font-size: 13px;
 }
 
 .recipe-total {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .recipe-actions {
@@ -321,7 +492,20 @@ header h1 {
   gap: 6px;
 }
 
-/* Recipe Edit View */
+.recipe-actions .btn {
+  margin-bottom: 0;
+}
+
+.recipe-actions .btn.primary {
+  flex: 1;
+}
+
+.recipe-actions .btn.danger {
+  width: auto;
+  padding: 6px 12px;
+}
+
+/* ==================== Recipe Edit View ==================== */
 
 #recipe-edit-view {
   padding: 12px 16px;
@@ -335,38 +519,53 @@ header h1 {
 .input {
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #d5d9d9;
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
   outline: none;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
 }
 
 .input:focus {
-  border-color: #e77600;
-  box-shadow: 0 0 0 2px rgba(228, 121, 17, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
 }
 
 .multiplier-row {
   display: flex;
   align-items: center;
   gap: 10px;
+  background: var(--surface);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
 }
 
 .multiplier-row label {
   font-weight: 600;
+  font-size: 13px;
+  color: var(--text-secondary);
 }
 
-#recipe-edit-view h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: #565959;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 4px;
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
 }
 
 .recipe-add-actions {
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 .recipe-add-actions .btn {
@@ -375,15 +574,23 @@ header h1 {
 
 .form-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
 }
 
 .form-actions .btn {
   flex: 1;
+  margin-bottom: 0;
 }
 
-/* Item Picker Modal */
+/* New recipe button area */
+
+.recipe-footer {
+  padding: 8px 10px;
+}
+
+/* ==================== Item Picker Modal ==================== */
 
 .modal {
   position: fixed;
@@ -391,26 +598,47 @@ header h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal-content {
-  background: #fff;
-  border-radius: 8px;
-  padding: 16px;
-  width: 360px;
-  max-height: 400px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  width: 370px;
+  max-height: 420px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 200ms ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal-content h3 {
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 #picker-items {
@@ -421,22 +649,28 @@ header h1 {
 .picker-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 4px;
-  border-bottom: 1px solid #f0f0f0;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: background var(--transition);
 }
 
 .picker-item:hover {
-  background: #fafafa;
+  background: var(--surface-hover);
 }
 
 .picker-item input[type="checkbox"] {
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
 
 .picker-item-title {
-  font-size: 12px;
+  font-size: 12.5px;
+  font-weight: 500;
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -446,6 +680,26 @@ header h1 {
 
 .picker-item-price {
   font-size: 12px;
-  color: #565959;
+  color: var(--text-secondary);
+  font-weight: 600;
   flex-shrink: 0;
+}
+
+/* ==================== Scrollbar ==================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c1c5cb;
 }

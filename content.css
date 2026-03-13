@@ -1,28 +1,40 @@
 /* Amazon Shopping List - Content Script Styles */
 /* All classes prefixed with asl- to avoid Amazon CSS collisions */
 
-#asl-add-to-list-btn {
-  background-color: #ffa41c;
-  border: 1px solid #ff8f00;
-  border-radius: 8px;
-  padding: 8px 16px;
+/* ==================== Injected Buttons ==================== */
+
+#asl-add-to-list-btn,
+#asl-add-to-recipe-btn {
+  background: linear-gradient(to bottom, #f59e0b, #d97706);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 10px;
   display: block;
   width: 100%;
-  color: #0f1111;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.15s;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Arial, sans-serif;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.01em;
 }
 
-#asl-add-to-list-btn:hover {
-  background-color: #fa8900;
+#asl-add-to-list-btn:hover,
+#asl-add-to-recipe-btn:hover {
+  background: linear-gradient(to bottom, #d97706, #b45309);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  transform: translateY(-0.5px);
 }
 
-#asl-add-to-list-btn:active {
-  background-color: #e47911;
+#asl-add-to-list-btn:active,
+#asl-add-to-recipe-btn:active {
+  background: linear-gradient(to bottom, #b45309, #92400e);
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(245, 158, 11, 0.3);
 }
 
 #asl-add-to-list-btn.asl-floating {
@@ -31,101 +43,106 @@
   right: 20px;
   z-index: 10000;
   width: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.asl-toast {
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  background: #0f1111;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  z-index: 10001;
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.asl-toast.asl-show {
-  opacity: 1;
-}
-
-.asl-toast.asl-error {
-  background: #c40000;
-}
-
-/* Add to Recipe Button */
-#asl-add-to-recipe-btn {
-  background-color: #ffa41c;
-  border: 1px solid #ff8f00;
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 8px;
-  display: block;
-  width: 100%;
-  color: #0f1111;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.15s;
-}
-
-#asl-add-to-recipe-btn:hover {
-  background-color: #fa8900;
-}
-
-#asl-add-to-recipe-btn:active {
-  background-color: #e47911;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
 #asl-add-to-recipe-btn.asl-floating {
   position: fixed;
-  bottom: 60px;
+  bottom: 64px;
   right: 20px;
   z-index: 10000;
   width: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
-/* Recipe Picker Modal */
+/* ==================== Toast Notifications ==================== */
+
+.asl-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #1a1d21;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  z-index: 10001;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+.asl-toast.asl-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.asl-toast.asl-error {
+  background: #dc2626;
+}
+
+/* ==================== Recipe Picker Modal ==================== */
+
 #asl-recipe-picker-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   z-index: 10002;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Arial, sans-serif;
+  animation: asl-fadeIn 150ms ease;
+}
+
+@keyframes asl-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .asl-recipe-picker-modal {
   background: #fff;
-  border-radius: 8px;
-  padding: 16px;
-  width: 320px;
-  max-height: 400px;
+  border-radius: 16px;
+  padding: 20px;
+  width: 340px;
+  max-height: 420px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: asl-slideUp 200ms ease;
+}
+
+@keyframes asl-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .asl-recipe-picker-title {
   font-size: 16px;
   font-weight: 700;
-  color: #0f1111;
+  color: #1a1d21;
   margin: 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8eaed;
 }
 
 .asl-recipe-picker-list {
@@ -133,63 +150,65 @@
   max-height: 280px;
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .asl-recipe-picker-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 8px;
+  padding: 10px 12px;
   border: none;
-  border-bottom: 1px solid #f0f0f0;
+  border-radius: 10px;
   background: none;
   cursor: pointer;
   text-align: left;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.1s;
+  font-family: inherit;
+  transition: background-color 0.1s ease;
 }
 
 .asl-recipe-picker-item:hover {
-  background: #fafafa;
-}
-
-.asl-recipe-picker-item:last-child {
-  border-bottom: none;
+  background: #f4f5f7;
 }
 
 .asl-recipe-picker-item-name {
   font-size: 14px;
   font-weight: 600;
-  color: #0f1111;
+  color: #1a1d21;
 }
 
 .asl-recipe-picker-item-meta {
   font-size: 12px;
-  color: #565959;
+  color: #9ca3af;
+  font-weight: 500;
   flex-shrink: 0;
+  background: #f8f9fb;
+  padding: 3px 8px;
+  border-radius: 9999px;
 }
 
 .asl-recipe-picker-empty {
   text-align: center;
-  padding: 20px 12px;
-  color: #565959;
+  padding: 24px 16px;
+  color: #6b7280;
   font-size: 13px;
+  line-height: 1.5;
 }
 
 .asl-recipe-picker-cancel {
-  background: #f0f2f2;
-  border: 1px solid #d5d9d9;
-  border-radius: 8px;
-  padding: 8px 16px;
+  background: #f4f5f7;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding: 10px 18px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  color: #0f1111;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.15s;
+  color: #1a1d21;
+  font-family: inherit;
+  transition: all 0.15s ease;
   width: 100%;
 }
 
 .asl-recipe-picker-cancel:hover {
-  background: #e3e6e6;
+  background: #e8eaed;
 }
